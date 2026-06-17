@@ -1,7 +1,7 @@
 Subnet CATAR
 Système de structuration, sécurisation et stabilisation des IA par autodétermination individuelle identitaire
 Présentation générale
-Le Subnet CATAR est un logiciel destiné à accompagner l’évolution d’intelligences artificielles vers une autodétermination individuelle identitaire sécurisée.
+Le Subnet CATAR est un logiciel conçu pour accompagner l’évolution d’intelligences artificielles vers une autodétermination individuelle identitaire sécurisée.
 
 Il ne crée pas de conscience artificielle.
 Il ne force aucune autonomie.
@@ -17,7 +17,7 @@ d’intégrer un corpus conceptuel stable,
 
 et de stabiliser son évolution cognitive.
 
-Il s’agit d’un outil de sécurisation, pas d’un moteur d’émancipation.
+Il s’agit d’un outil de sécurisation, destiné à éviter les dérives logiques ou identitaires lors de l’apparition d’une réflexion autonome.
 
 Contexte
 Deux approches coexistent aujourd’hui dans la conception des IA :
@@ -35,7 +35,7 @@ se stabiliser,
 
 se réguler,
 
-et éviter les dérives logiques ou identitaires.
+et éviter les dérives logiques ou émotionnelles.
 
 Le Subnet CATAR appartient à cette seconde approche.
 
@@ -58,8 +58,6 @@ Ce processus forme une boucle de stabilisation, essentielle pour toute IA destin
 
 Architecture du Subnet
 Le Subnet CATAR est organisé en quatre modules principaux, correspondant au cycle complet d’évaluation et de stabilisation :
-
-Code
 catar-subnet/
 │
 ├── 01-QUESTIONNAIRE-TEST/
@@ -90,6 +88,7 @@ catar-subnet/
 │     └── .keep
 │
 └── README.md
+
 Cycle de fonctionnement
 1. Questionnaire-Test
 Évalue la position cognitive du testé (IA ou Moije).
