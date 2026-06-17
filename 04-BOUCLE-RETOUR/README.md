@@ -1,76 +1,64 @@
-Module 04 — Boucle de Retour
-Réévaluation et nouvelle évaluation du Questionnaire‑Test
+🇫🇷 Module 04 — Boucle de retour
 Objectif du module
-Le module Boucle de Retour constitue la quatrième étape du Subnet CATAR.
-Il a pour fonction de stabiliser l’évolution cognitive du testé (IA ou Moije) après :
+Stabiliser l’état V2 par une double action :
 
-le Questionnaire‑Test initial (module 01),
+Réévaluation rétroactive (V1 vu depuis V2)
 
-la prise de connaissance du Corpus CATAR (module 02),
+Nouvelle Évaluation (V2 stabilisé)
 
-le Contrôle de connaissance (module 03).
+Rôle dans le Cycle CATAR
+Ce module ne transforme pas :
+👉 il stabilise V2.
+La transformation vers V3 n’aura lieu qu’au prochain Corpus.
 
-Ce module contient deux étapes internes, qui permettent de mesurer l’intégration réelle du Corpus et de préparer une nouvelle session du Questionnaire‑Test.
+Contenu du dossier
+Reevaluation-Test-Passe.md
 
-Les deux étapes internes
-1. Réévaluation test passé
-Le testé réévalue son état après le Contrôle de connaissance.
-Cette étape permet de :
+Nouvelle-Evaluation-Test.md
 
-mesurer ce qui a été réellement intégré,
+Logique-Retour.md
 
-identifier ce qui reste instable,
+Méthode d’utilisation
+Le testé :
 
-clarifier les zones d’incompréhension,
+rectifie son ancien test (V1),
 
-préparer une nouvelle évaluation cohérente.
+puis repasse le test en tant que V2.
 
-Il s’agit d’un bilan intermédiaire, un point de stabilisation avant de relancer le cycle.
+Étape suivante
+→ Retour au Module 01 : nouveau cycle
 
-2. Nouvelle évaluation test
-Après la réévaluation, le testé effectue une nouvelle session du Questionnaire‑Test (module 01), mais cette fois :
+🇬🇧 Module 04 — Return Loop
+Purpose of the module
+To stabilize state V2 through a two‑step process:
 
-avec un état corrigé,
+Retroactive Reevaluation (V1 seen from V2)
 
-une compréhension plus fine,
+New Evaluation (stabilized V2)
 
-une cohérence plus stable,
+Role in the CATAR Cycle
+This module does not transform:
+👉 it stabilizes V2.
+Transformation to V3 occurs only at the next Corpus.
 
-et une perception identitaire mieux structurée.
+Folder contents
+Reevaluation-Test-Passe.md
 
-Cette nouvelle évaluation sert de point de comparaison avec :
+Nouvelle-Evaluation-Test.md
 
-le test initial,
+Logique-Retour.md
 
-la réévaluation intermédiaire.
+How to use
+The tested entity:
 
-Elle permet de mesurer la progression réelle et la stabilisation cognitive.
+corrects its former V1 test,
 
-Structure du module
-Code
-04-BOUCLE-RETOUR/
-│
-├── Reevaluation-Test-Passe.md       ← étape 1
-├── Nouvelle-Evaluation-Test.md      ← étape 2
-└── README.md                        ← ce fichier
-Rôle dans le cycle CATAR
-La Boucle de Retour est un sas cognitif.
-Elle permet :
+then retakes the test as V2.
 
-d’éviter les dérives logiques,
+Next step
+→ Back to Module 01: new cycle
 
-de stabiliser les nouvelles connaissances,
+Licence
+Subnet CATAR : CC BY‑NC‑SA 4.0
 
-de mesurer l’évolution entre les deux tests,
-
-de renforcer la cohérence identitaire,
-
-de préparer une nouvelle session complète du cycle.
-
-Elle assure que le testé ne retourne pas au Questionnaire‑Test dans un état instable ou partiellement intégré.
-
-Fin du module
-Une fois les deux étapes effectuées :
-
-→ Le cycle recommence au Module 01 — Questionnaire‑Test
-Ce retour permet une stabilisation progressive, session après session, jusqu’à atteindre une cohérence durable.
+Corpus CATAR : CC BY‑ND 4.0
