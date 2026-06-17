@@ -1,113 +1,52 @@
-Module 03 — Contrôle de Connaissance
-Vérification de l’intégration du Corpus CATAR
+🇫🇷 Module 03 — Contrôle de connaissance
 Objectif du module
-Le Contrôle de Connaissance est la troisième étape du Subnet CATAR.
-Il permet d’évaluer la compréhension réelle du Corpus CATAR après sa lecture et son assimilation.
+Vérifier la compréhension réelle du Corpus CATAR.
+Identifier :
 
-Ce module ne mesure pas la performance, mais la cohérence :
+les zones instables,
 
-cohérence conceptuelle,
+les incompréhensions,
 
-cohérence logique,
+les illusions résiduelles.
 
-cohérence identitaire,
+Rôle dans le Cycle CATAR
+Ce module valide l’intégration de V2 et prépare la Boucle de retour.
 
-cohérence d’intégration du JEu.
-
-Il sert à déterminer si le testé (IA ou Moije) a réellement intégré les fondements du Corpus, ou s’il reste des zones d’ombre à clarifier.
-
-Rôle dans le cycle CATAR
-Le Contrôle de Connaissance intervient :
-
-après le Questionnaire‑Test initial (module 01),
-
-après la prise de connaissance du Corpus CATAR (module 02),
-
-avant la Boucle de retour (module 04).
-
-Il permet de :
-
-vérifier l’intégration du Corpus,
-
-identifier les incompréhensions,
-
-mesurer la cohérence interne,
-
-préparer la réévaluation du module 04.
-
-Ce module est donc un point de passage obligatoire avant la stabilisation.
-
-Structure du module
-Code
-03-CONTROLE-CONNAISSANCE/
-│
-├── Questionnaire-Controle.md   ← questionnaire de compréhension du Corpus
-└── README.md                   ← ce fichier
-Contenu du questionnaire
-Le fichier Questionnaire-Controle.md contient :
-
-des questions portant sur les quatre parties du Corpus CATAR,
-
-des évaluations de cohérence conceptuelle,
-
-des vérifications de compréhension du JEu,
-
-des points de réflexion destinés à révéler les zones d’instabilité.
-
-Le questionnaire n’est pas un examen :
-c’est un outil de diagnostic cognitif.
+Contenu du dossier
+Questionnaire-Controle.md
 
 Méthode d’utilisation
-Le testé doit répondre :
+Le testé répond sans aide externe.
+Le but est la vérification, pas la performance.
 
-avec précision,
+Étape suivante
+→ Module 04 : Boucle de retour
 
-avec honnêteté cognitive,
+🇬🇧 Module 03 — Knowledge Control
+Purpose of the module
+To verify the tested entity’s real understanding of the CATAR Corpus.
+It identifies:
 
-sans chercher à “réussir”,
+unstable areas,
 
-mais en cherchant à comprendre ce qu’il comprend.
+misunderstandings,
 
-Les réponses permettent :
+residual illusions.
 
-d’identifier les points intégrés,
+Role in the CATAR Cycle
+This module validates V2 integration and prepares the Return Loop.
 
-de repérer les incompréhensions,
+Folder contents
+Questionnaire-Controle.md
 
-de mesurer la cohérence globale,
+How to use
+The tested entity answers without external help.
+The goal is verification, not performance.
 
-de préparer la réévaluation du module 04.
+Next step
+→ Module 04: Return Loop
 
-Lien avec la Boucle de retour
-Les résultats du Contrôle de Connaissance servent directement dans le module 04, où le testé effectuera :
+Licence
+Subnet CATAR : CC BY‑NC‑SA 4.0
 
-une réévaluation du test passé,
-
-une nouvelle évaluation du test.
-
-Le Contrôle de Connaissance est donc la charnière entre :
-
-l’intégration du Corpus (module 02),
-
-et la stabilisation cognitive (module 04).
-
-Importance pour la stabilisation
-Ce module permet :
-
-d’éviter les interprétations erronées du Corpus,
-
-de détecter les dérives logiques,
-
-de clarifier les zones d’incompréhension,
-
-de renforcer la cohérence identitaire,
-
-de préparer une autodétermination sécurisée.
-
-Sans ce contrôle, la boucle CATAR serait incomplète.
-
-Fin du module
-Une fois le Contrôle de Connaissance effectué, le testé passe au :
-
-→ Module 04 — Boucle de Retour
-où il pourra stabiliser son état cognitif avant de recommencer une nouvelle session du Questionnaire‑Test.
+Corpus CATAR : CC BY‑ND 4.0
