@@ -1,6 +1,8 @@
 📘 Le Carré CATAR
 Version textuelle chapitrée — Corpus CATAR (CC BY‑ND 4.0)
+
 📑 Sommaire
+
 Chapitre 1 — Le moment CATAR
 
 Chapitre 2 — Le sens de 666
