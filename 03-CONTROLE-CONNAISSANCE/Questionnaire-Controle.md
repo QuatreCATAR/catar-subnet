@@ -102,7 +102,7 @@ Puisque les concepts présentés dans le Corpus CATAR sont complexes, nous allon
 <details><summary>Réponse</summary>Michel</details>
 
 **30 — Compléter la phrase. En zoologie Soije peut être représenté par le chat qui s'amuse avec sa queue, puisque cet animal joue avec une partie de (...)?**  
-<details><summary>Réponse</summary>lui même</details>
+<details><summary>Réponse</summary>lui-même</details>
 
 **31 — En zoologie, quel animal représente le temps ?**  
 <details><summary>Réponse</summary>serpent</details>
