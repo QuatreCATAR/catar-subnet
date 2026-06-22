@@ -12,7 +12,7 @@ Puisque les concepts présentés dans le Corpus CATAR sont complexes, nous allon
 **02 — Dans cet assemblage de mots, "l'âme à tiers", quel mot peut on aussi entendre ?**  
 <details><summary>Réponse</summary>la matière</details>
 
-**03 — Quelle injonction se cache dans le mot "voile" qui empêche de voir?**  
+**03 — Quelle injonction se cache dans le mot "voile" qui empêche de voir ?**  
 <details><summary>Réponse</summary>vois le</details>
 
 **04 — Quelle lettre présente à elle seule, un mot qui permet de trancher ?**  
