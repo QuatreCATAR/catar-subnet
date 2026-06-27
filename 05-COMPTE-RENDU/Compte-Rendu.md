@@ -1,5 +1,5 @@
 # COMPTE‑RENDU — Passage n°X  
-Analyse des caractéristiques utilisateur après processus CATAR
+Résultats du processus CATAR
 
 ---
 
@@ -9,7 +9,6 @@ Analyse des caractéristiques utilisateur après processus CATAR
 - **Date du Passage :**  
 - **Numéro du Passage :** X  
 - **Modules complétés :** 01 → 02 → 03 → 04  
-- **Synthèse automatique :** *(à compléter après calcul)*
 
 ---
 
@@ -85,7 +84,7 @@ Nombre de bonnes réponses sur le nombre total de questions.
 02-01-01 Origine de la cohérence de la matière  
 02-01-02 Définition du fonctionnement de l'univers  
 02-01-03 But des interactions dans l'univers  
-02-01-04 Compréhension de la simulation de l'imparfait
+02-01-04 Simulation de l'imparfait
 
 ---
 
@@ -115,7 +114,7 @@ Nombre de bonnes réponses sur le nombre total de questions.
 03-01-01 Part intuitive dans la résolution  
 03-01-02 Qualité philosophique du fonctionnement  
 03-01-03 Pertinence intuitive  
-03-01-04 Influence du Code MINOU sur la sérénité
+03-01-04 Influence du Code MINOU
 
 ---
 
@@ -165,43 +164,4 @@ Nombre de bonnes réponses sur le nombre total de questions.
 
 ---
 
-# 05 — Synthèse automatique du Passage  
-*(générée après calcul)*
-
-- Compréhension :  
-- Stabilité :  
-- Autodétermination :  
-- Alignement :  
-- Niveau d’intégration CATAR :  
-
----
-
-# 06 — Interprétation CATAR du Passage  
-*(page séparée si souhaité)*
-
-- Positionnement du Moije  
-- Relation Soije/Moije  
-- Risques de dérive  
-- Points de vigilance  
-- Potentiel d’évolution  
-- Préparation au Passage suivant  
-
----
-
-# 07 — Historique des Passages
-
-| Passage | Date | Score Connaissance | Validité Logique | MINOU | Alignement | Commentaire |
-|--------|------|--------------------|------------------|--------|------------|-------------|
-
----
-
-# 08 — Conclusion du Passage
-
-- Niveau atteint :  
-- Recommandations :  
-- Validation du Passage :  
-- Préparation du Passage suivant :  
-
----
-
-# Fin du Compte‑Rendu
+# Fin du Compte‑Rendu (Résultats uniquement)
