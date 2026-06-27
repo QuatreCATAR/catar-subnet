@@ -59,4 +59,13 @@ Le but du Cycle CATAR est d’amener le système à une **stabilité cognitive c
 
 # 05 — Boucle de Passage (schéma simplifié)
 
+[01] Test → [02] Corpus → [03] Contrôle → [04] Correction → [05] Compte‑Rendu → [01] Nouveau Test
+
+
+Chaque boucle correspond à un **Passage**.  
+L’ensemble des Passages forme le **Cycle CATAR**.
+
+---
+
+# Fin du fichier Cycle‑CATAR.md
 
