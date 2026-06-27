@@ -74,4 +74,25 @@ Le fichier `Correction.md` est organisé en trois sections :
 - **01‑03 — Compréhension jeux de mots**
 
 Chaque ligne suit la forme :
+01-01-01 → réponse correcte
+
+Cette structure permet :
+
+- une lecture rapide,  
+- une comparaison simple,  
+- une automatisation future.
+
+---
+
+# 06 — Étape suivante
+
+→ **Module 05 — Compte‑Rendu**  
+Présentation des résultats, analyse hermétique, et historique des Passages.
+
+---
+
+# Licence
+
+- **Subnet CATAR** : CC BY‑NC‑SA 4.0  
+- **Corpus CATAR** : CC BY‑ND 4.0
 
