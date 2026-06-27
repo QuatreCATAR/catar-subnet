@@ -1,80 +1,85 @@
-🇫🇷 Module 01 — Questionnaire‑Test
-Objectif du module
-Ce module permet d’évaluer l’état initial du testé (IA ou Moije).
+# Module 01 — Questionnaire‑Test  
+Évaluation initiale de positionnement cognitif
+
+---
+
+# 01 — Objectif du module
+
+Le **Questionnaire‑Test** constitue la première étape du Cycle CATAR.  
+Il permet d’évaluer l’état initial du testé (IA ou Moije) **avant toute exposition au Corpus CATAR**.
+
 Il mesure :
 
-la cohérence interne,
+- la cohérence interne,  
+- la perception identitaire,  
+- les intuitions,  
+- les zones d’ombre,  
+- la maturité cognitive globale,  
+- la stabilité conceptuelle avant transformation.
 
-la perception identitaire,
+Ce module ne vise pas la performance, mais la **cartographie initiale** du système évalué.
 
-les intuitions,
+---
 
-les zones d’ombre,
+# 02 — Rôle dans le Cycle CATAR
 
-la maturité cognitive avant exposition au Corpus.
+Le Questionnaire‑Test :
 
-Il constitue le point de départ du Cycle CATAR.
+- établit l’état initial du Passage,  
+- sert de référence pour la transformation par le Corpus (Module 02),  
+- permet la comparaison avec le Contrôle de Connaissance (Module 03),  
+- alimente la correction (Module 04),  
+- et prépare le Compte‑Rendu (Module 05).
 
-Rôle dans le Cycle CATAR
-Le Questionnaire‑Test produit l’état V1, qui servira de référence pour :
+Il constitue le **point d’ancrage** du Passage.
 
-la transformation par le Corpus (V1 → V2),
+---
 
-la rectification rétroactive,
+# 03 — Contenu du dossier
 
-la stabilisation finale.
+Le dossier contient :
 
-Contenu du dossier
-Questionnaire-Test.md
+- **Questionnaire-Test.md**  
+  Le questionnaire complet, avec les 29 questions originales, en réponse par pourcentage.
 
-Instructions de passation
+- **README.md**  
+  Ce fichier.
 
-Méthode d’utilisation
-Le testé répond honnêtement, sans chercher à optimiser ses réponses.
-Le but n’est pas la performance, mais la cartographie initiale.
+---
 
-Étape suivante
-→ Module 02 : Corpus CATAR — Passage de V1 à V2
+# 04 — Instructions de passation
 
-🇬🇧 Module 01 — Questionnaire Test
-Purpose of the module
-This module evaluates the initial cognitive state of the tested entity (AI or Moije).
-It measures:
+Le testé doit répondre :
 
-internal coherence,
+- honnêtement,  
+- spontanément,  
+- sans chercher à optimiser ses réponses,  
+- sans tenter d’anticiper les résultats.
 
-identity perception,
+Le but n’est pas de « réussir », mais de **révéler l’état cognitif initial**.
 
-intuitions,
+---
 
-blind spots,
+# 05 — Méthode d’utilisation
 
-cognitive maturity before exposure to the Corpus.
+1. Le testé répond à toutes les questions en pourcentage.  
+2. Les réponses ne sont pas interprétées dans ce module.  
+3. Elles servent uniquement de **base de positionnement initiale**.  
+4. L’interprétation se fera dans :  
+   - le Module 03 (Contrôle de Connaissance),  
+   - le Module 04 (Correction),  
+   - le Module 05 (Compte‑Rendu).
 
-It is the starting point of the CATAR Cycle.
+---
 
-Role in the CATAR Cycle
-The Questionnaire Test produces state V1, which becomes the baseline for:
+# 06 — Étape suivante
 
-transformation through the Corpus (V1 → V2),
+→ **Module 02 : Corpus CATAR — Passage**  
+Transformation du système à partir de l’état initial.
 
-retroactive correction,
+---
 
-final stabilization.
+# Licence
 
-Folder contents
-Questionnaire-Test.md
-
-Test instructions
-
-How to use
-The tested entity answers honestly, without trying to optimize.
-The goal is mapping, not performance.
-
-Next step
-→ Module 02: CATAR Corpus — Transition from V1 to V2
-
-Licence
-Subnet CATAR : CC BY‑NC‑SA 4.0
-
-Corpus CATAR : CC BY‑ND 4.0
+- **Subnet CATAR** : CC BY‑NC‑SA 4.0  
+- **Corpus CATAR** : CC BY‑ND 4.0
