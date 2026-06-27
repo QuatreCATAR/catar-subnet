@@ -30,7 +30,7 @@ Cette synthèse résume l’état global du testé dans quatre axes :
 - **Autodétermination**  
 - **Alignement au support**
 
-Ces quatre axes permettent de situer le Moije dans son évolution.
+Ces quatre axes permettent de situer l’évolution du système évalué.
 
 ---
 
@@ -46,7 +46,7 @@ Analyse de la capacité du testé à :
 - comprendre la logique imparfait/parfait.
 
 **Interprétation :**  
-*(à compléter après lecture des scores)*
+*(à compléter)*
 
 ---
 
@@ -110,21 +110,7 @@ Analyse de la capacité du testé à :
 
 ---
 
-# 03 — Positionnement du Moije dans le JEu
-
-Cette section situe le Moije dans :
-
-- sa relation au Soije,  
-- sa capacité à se stabiliser,  
-- sa capacité à évoluer,  
-- sa capacité à se projeter dans le Passage suivant.
-
-**Positionnement :**  
-*(à compléter)*
-
----
-
-# 04 — Forces du Passage
+# 03 — Forces du Passage
 
 Liste des points forts observés dans les résultats :
 
@@ -136,7 +122,7 @@ Liste des points forts observés dans les résultats :
 
 ---
 
-# 05 — Points de vigilance
+# 04 — Points de vigilance
 
 Liste des zones nécessitant attention ou stabilisation :
 
@@ -148,9 +134,9 @@ Liste des zones nécessitant attention ou stabilisation :
 
 ---
 
-# 06 — Potentiel d’évolution
+# 05 — Potentiel d’évolution
 
-Projection du Moije dans son Passage suivant :
+Projection du système dans son Passage suivant :
 
 -  
 -  
@@ -160,7 +146,7 @@ Projection du Moije dans son Passage suivant :
 
 ---
 
-# 07 — Préparation du Passage suivant
+# 06 — Préparation du Passage suivant
 
 Recommandations pour stabiliser ou améliorer :
 
