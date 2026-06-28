@@ -1,15 +1,28 @@
 # miner.py
-# Miner CATAR — version avec PassageCATAR intégré
+# Miner CATAR — version avec settings.yaml intégré
 
 import argparse
 import logging
 import bittensor as bt
+import yaml
+import os
 
-# Import du Passage CATAR
+# Import Passage CATAR
 from catar_core.passage_catar import PassageCATAR
 
+
 # -----------------------------------------------------------------------------
-# 01 — Configuration de base du miner
+# 01 — Chargement de settings.yaml
+# -----------------------------------------------------------------------------
+
+def load_settings():
+    settings_path = os.path.join("config", "settings.yaml")
+    with open(settings_path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+# -----------------------------------------------------------------------------
+# 02 — Configuration du miner
 # -----------------------------------------------------------------------------
 
 def get_config():
@@ -19,84 +32,58 @@ def get_config():
     bt.subtensor.add_args(parser)
     bt.logging.add_args(parser)
 
-    parser.add_argument(
-        "--miner.name",
-        type=str,
-        default="catar-miner",
-        help="Nom du miner CATAR."
-    )
-
-    parser.add_argument(
-        "--catar.corpus",
-        type=str,
-        default="corpus/corpus_catar.txt",
-        help="Chemin vers le Corpus CATAR."
-    )
-
     config = bt.config(parser)
-    bt.logging(config=config, logging_dir="logs")
+    bt.logging(config=config, logging_dir="logs/miner")
+
     return config
 
 
 # -----------------------------------------------------------------------------
-# 02 — Classe MinerCATAR avec PassageCATAR
+# 03 — Classe MinerCATAR
 # -----------------------------------------------------------------------------
 
 class MinerCATAR:
-    """
-    Miner CATAR :
-    - se connecte au réseau Bittensor
-    - expose un axon
-    - exécute le Passage CATAR complet
-    """
-
     def __init__(self, config: bt.Config):
         self.config = config
+        self.settings = load_settings()
 
         # Passage CATAR
         self.passage = PassageCATAR()
 
-        # Wallet (coldkey + hotkey)
+        # Wallet
         self.wallet = bt.wallet(config=self.config)
 
-        # Subtensor (connexion au réseau)
+        # Subtensor
         self.subtensor = bt.subtensor(config=self.config)
 
-        # Axon (serveur qui reçoit les requêtes des validateurs)
+        # Axon
         self.axon = bt.axon(
             wallet=self.wallet,
             config=self.config,
+            port=self.settings["miner"]["axon_port"]
         )
 
-        # Enregistrement des callbacks
+        # Callbacks
         self.axon.attach(
             forward_fn=self.forward,
             blacklist_fn=self.blacklist,
             priority_fn=self.priority,
         )
 
-        logging.info("MinerCATAR initialisé avec PassageCATAR.")
+        logging.info("MinerCATAR initialisé avec settings.yaml.")
 
     # -------------------------------------------------------------------------
-    # 03 — Logique CATAR : exécution du Passage
+    # 04 — Passage CATAR
     # -------------------------------------------------------------------------
 
     def forward(self, synapse: bt.Synapse) -> bt.Synapse:
-        """
-        Fonction appelée à chaque requête du validator.
-        Exécute le Passage CATAR complet.
-        """
+        test_input = getattr(synapse, "prompt", "Entrée CATAR par défaut")
 
-        # Entrée envoyée par le validator
-        test_input = synapse.prompt if hasattr(synapse, "prompt") else "Entrée CATAR par défaut"
-
-        # Exécution du Passage CATAR
         result = self.passage.execute(
             test_input=test_input,
-            corpus_path=self.config.catar.corpus
+            corpus_path=self.settings["catar"]["corpus_path"]
         )
 
-        # Réponse envoyée au validator
         synapse.completion = (
             f"Passage CATAR exécuté.\n"
             f"Test : {result['test']}\n"
@@ -106,11 +93,10 @@ class MinerCATAR:
             f"Analyse : {result['analysis']}"
         )
 
-        logging.debug(f"Réponse CATAR envoyée : {synapse.completion}")
         return synapse
 
     # -------------------------------------------------------------------------
-    # 04 — Blacklist et priorité
+    # 05 — Blacklist / Priorité
     # -------------------------------------------------------------------------
 
     def blacklist(self, synapse: bt.Synapse) -> bool:
@@ -120,24 +106,22 @@ class MinerCATAR:
         return 0.5
 
     # -------------------------------------------------------------------------
-    # 05 — Boucle principale
+    # 06 — Boucle principale
     # -------------------------------------------------------------------------
 
     def run(self):
         logging.info("Démarrage du miner CATAR...")
         self.axon.start()
-        logging.info("Axon en écoute. MinerCATAR opérationnel.")
 
         try:
             while True:
                 pass
         except KeyboardInterrupt:
-            logging.info("Arrêt du miner CATAR.")
             self.axon.stop()
 
 
 # -----------------------------------------------------------------------------
-# 06 — Entrée principale
+# 07 — Entrée principale
 # -----------------------------------------------------------------------------
 
 def main():
