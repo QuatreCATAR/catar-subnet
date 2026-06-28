@@ -1,25 +1,31 @@
 # validator.py
-# Validator CATAR — Passage + Correction + Analyse + Compte-Rendu
+# Validator CATAR — Passage + Correction + Analyse + Compte-Rendu + settings.yaml
 
 import argparse
 import logging
 import bittensor as bt
+import yaml
+import os
 
-# Import du Passage CATAR
+# Import modules CATAR
 from catar_core.passage_catar import PassageCATAR
-
-# Import de la Correction réelle
 from catar_core.correction import CorrectionCATAR
-
-# Import de l’Analyse réelle
 from catar_core.analysis import AnalyseCATAR
-
-# Import du Compte-Rendu CATAR
 from catar_core.compte_rendu import CompteRenduCATAR
 
 
 # -----------------------------------------------------------------------------
-# 01 — Configuration du validator
+# 01 — Chargement de settings.yaml
+# -----------------------------------------------------------------------------
+
+def load_settings():
+    settings_path = os.path.join("config", "settings.yaml")
+    with open(settings_path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+# -----------------------------------------------------------------------------
+# 02 — Configuration du validator
 # -----------------------------------------------------------------------------
 
 def get_config():
@@ -28,56 +34,27 @@ def get_config():
     bt.subtensor.add_args(parser)
     bt.logging.add_args(parser)
 
-    parser.add_argument(
-        "--validator.name",
-        type=str,
-        default="catar-validator",
-        help="Nom du validator CATAR."
-    )
-
-    parser.add_argument(
-        "--catar.corpus",
-        type=str,
-        default="corpus/corpus_catar.txt",
-        help="Chemin vers le Corpus CATAR."
-    )
-
-    parser.add_argument(
-        "--catar.correction",
-        type=str,
-        default="corpus/Correction.md",
-        help="Chemin vers la Correction CATAR."
-    )
-
     config = bt.config(parser)
-    bt.logging(config=config, logging_dir="logs")
+    bt.logging(config=config, logging_dir="logs/validator")
+
     return config
 
 
 # -----------------------------------------------------------------------------
-# 02 — Classe ValidatorCATAR
+# 03 — Classe ValidatorCATAR
 # -----------------------------------------------------------------------------
 
 class ValidatorCATAR:
-    """
-    Validator CATAR :
-    - interroge les miners
-    - reçoit le Passage CATAR
-    - applique la Correction réelle
-    - applique l’Analyse CATAR
-    - génère un Compte-Rendu CATAR complet
-    - attribue un score global CATAR
-    """
-
     def __init__(self, config: bt.Config):
         self.config = config
+        self.settings = load_settings()
 
         # Passage CATAR
         self.passage = PassageCATAR()
 
         # Correction réelle
         self.correction_engine = CorrectionCATAR(
-            correction_path=self.config.catar.correction
+            correction_path=self.settings["catar"]["correction_path"]
         )
 
         # Analyse réelle
@@ -92,56 +69,36 @@ class ValidatorCATAR:
         # Subtensor
         self.subtensor = bt.subtensor(config=self.config)
 
-        logging.info("ValidatorCATAR initialisé avec Correction + Analyse + Compte-Rendu.")
+        logging.info("ValidatorCATAR initialisé avec settings.yaml.")
 
     # -------------------------------------------------------------------------
-    # 03 — Interrogation du miner + Correction + Analyse + Compte-Rendu
+    # 04 — Passage + Correction + Analyse + Compte-Rendu
     # -------------------------------------------------------------------------
 
     def forward(self):
-        """
-        Interroge un miner, reçoit le Passage CATAR,
-        applique la Correction réelle,
-        applique l’Analyse CATAR,
-        génère un Compte-Rendu CATAR,
-        attribue un score global.
-        """
-
         synapse = bt.Synapse()
-        response = self.subtensor.query(
-            wallet=self.wallet,
-            synapse=synapse
-        )
+        response = self.subtensor.query(wallet=self.wallet, synapse=synapse)
 
         miner_output = response.completion
-        logging.info(f"Réponse reçue du miner : {miner_output}")
 
-        # Correction réelle
         correction_result = self.correction_engine.correct(miner_output)
-
-        # Analyse réelle
         analysis_result = self.analysis_engine.analyse(miner_output)
 
-        # Score global CATAR
         score_global = correction_result["score"] + analysis_result["score"]
 
-        # Passage CATAR interne (pour cohérence du rapport)
         passage_result = {
             "test": "Entrée envoyée par le validator",
-            "corpus": self.config.catar.corpus,
+            "corpus": self.settings["catar"]["corpus_path"],
             "control": "Contrôle interne minimal",
             "correction": correction_result["score"],
             "analysis": analysis_result["score"]
         }
 
-        # Compte-Rendu CATAR
         compte_rendu = self.cr_engine.generate(
             passage_result=passage_result,
             correction_result=correction_result,
             analysis_result=analysis_result
         )
-
-        logging.info("Compte-Rendu CATAR généré.")
 
         return {
             "miner_output": miner_output,
@@ -154,7 +111,7 @@ class ValidatorCATAR:
         }
 
     # -------------------------------------------------------------------------
-    # 04 — Boucle principale
+    # 05 — Boucle principale
     # -------------------------------------------------------------------------
 
     def run(self):
@@ -169,7 +126,7 @@ class ValidatorCATAR:
 
 
 # -----------------------------------------------------------------------------
-# 05 — Entrée principale
+# 06 — Entrée principale
 # -----------------------------------------------------------------------------
 
 def main():
