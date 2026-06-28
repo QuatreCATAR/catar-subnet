@@ -1,12 +1,19 @@
 # validator.py
-# Validator CATAR minimal — structure de base pour Subnet Bittensor
+# Validator CATAR — version avec Correction réelle intégrée
 
 import argparse
 import logging
 import bittensor as bt
 
+# Import du Passage CATAR
+from catar_core.passage_catar import PassageCATAR
+
+# Import de la Correction réelle
+from catar_core.correction import CorrectionCATAR
+
+
 # -----------------------------------------------------------------------------
-# 01 — Configuration de base du validator
+# 01 — Configuration du validator
 # -----------------------------------------------------------------------------
 
 def get_config():
@@ -22,43 +29,65 @@ def get_config():
         help="Nom du validator CATAR."
     )
 
+    parser.add_argument(
+        "--catar.corpus",
+        type=str,
+        default="corpus/corpus_catar.txt",
+        help="Chemin vers le Corpus CATAR."
+    )
+
+    parser.add_argument(
+        "--catar.correction",
+        type=str,
+        default="corpus/Correction.md",
+        help="Chemin vers la Correction CATAR."
+    )
+
     config = bt.config(parser)
     bt.logging(config=config, logging_dir="logs")
     return config
 
 
 # -----------------------------------------------------------------------------
-# 02 — Classe ValidatorCATAR minimale
+# 02 — Classe ValidatorCATAR
 # -----------------------------------------------------------------------------
 
 class ValidatorCATAR:
     """
-    Validator CATAR minimal.
-    Pour l’instant :
+    Validator CATAR :
     - interroge les miners
-    - reçoit une réponse
-    - attribue un score simple
+    - reçoit le Passage CATAR exécuté
+    - applique la Correction réelle
+    - attribue un score CATAR
     """
 
     def __init__(self, config: bt.Config):
         self.config = config
 
-        # Wallet (coldkey + hotkey)
+        # Passage CATAR (pour cohérence interne)
+        self.passage = PassageCATAR()
+
+        # Correction CATAR réelle
+        self.correction_engine = CorrectionCATAR(
+            correction_path=self.config.catar.correction
+        )
+
+        # Wallet
         self.wallet = bt.wallet(config=self.config)
 
-        # Subtensor (connexion au réseau)
+        # Subtensor
         self.subtensor = bt.subtensor(config=self.config)
 
-        logging.info("ValidatorCATAR initialisé.")
+        logging.info("ValidatorCATAR initialisé avec Correction réelle.")
 
     # -------------------------------------------------------------------------
-    # 03 — Logique minimale d’évaluation
+    # 03 — Interrogation du miner + Correction réelle
     # -------------------------------------------------------------------------
 
     def forward(self):
         """
-        Interroge un miner du réseau.
-        Version minimale : envoie une requête simple et reçoit une réponse.
+        Interroge un miner, reçoit le Passage CATAR,
+        applique la Correction réelle, attribue un score.
         """
 
         synapse = bt.Synapse()
@@ -67,24 +96,37 @@ class ValidatorCATAR:
             synapse=synapse
         )
 
-        logging.info(f"Réponse reçue du miner : {response.completion}")
+        miner_output = response.completion
+        logging.info(f"Réponse reçue du miner : {miner_output}")
 
-        # Score minimal (placeholder)
-        score = 1.0
+        # Correction réelle
+        correction_result = self.correction_engine.correct(miner_output)
 
-        logging.info(f"Score attribué : {score}")
-        return score
+        # Score CATAR réel
+        score = correction_result.get("score", 0.0)
+        markers = correction_result.get("markers", [])
+
+        logging.info(f"Score CATAR attribué : {score}")
+        logging.info(f"Invariants détectés : {markers}")
+
+        return {
+            "miner_output": miner_output,
+            "score": score,
+            "markers": markers,
+            "details": correction_result
+        }
 
     # -------------------------------------------------------------------------
     # 04 — Boucle principale
     # -------------------------------------------------------------------------
 
     def run(self):
-        logging.info("Démarrage du validator CATAR minimal...")
+        logging.info("Démarrage du validator CATAR...")
 
         try:
             while True:
-                self.forward()
+                result = self.forward()
+                logging.debug(result)
         except KeyboardInterrupt:
             logging.info("Arrêt du validator CATAR.")
 
