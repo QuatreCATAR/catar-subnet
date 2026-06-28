@@ -1,5 +1,5 @@
 # validator.py
-# Validator CATAR — Passage + Correction réelle + Analyse réelle
+# Validator CATAR — Passage + Correction + Analyse + Compte-Rendu
 
 import argparse
 import logging
@@ -13,6 +13,9 @@ from catar_core.correction import CorrectionCATAR
 
 # Import de l’Analyse réelle
 from catar_core.analysis import AnalyseCATAR
+
+# Import du Compte-Rendu CATAR
+from catar_core.compte_rendu import CompteRenduCATAR
 
 
 # -----------------------------------------------------------------------------
@@ -59,16 +62,17 @@ class ValidatorCATAR:
     """
     Validator CATAR :
     - interroge les miners
-    - reçoit le Passage CATAR exécuté
+    - reçoit le Passage CATAR
     - applique la Correction réelle
-    - applique l’Analyse CATAR réelle
+    - applique l’Analyse CATAR
+    - génère un Compte-Rendu CATAR complet
     - attribue un score global CATAR
     """
 
     def __init__(self, config: bt.Config):
         self.config = config
 
-        # Passage CATAR (cohérence interne)
+        # Passage CATAR
         self.passage = PassageCATAR()
 
         # Correction réelle
@@ -79,16 +83,19 @@ class ValidatorCATAR:
         # Analyse réelle
         self.analysis_engine = AnalyseCATAR()
 
+        # Compte-Rendu CATAR
+        self.cr_engine = CompteRenduCATAR()
+
         # Wallet
         self.wallet = bt.wallet(config=self.config)
 
         # Subtensor
         self.subtensor = bt.subtensor(config=self.config)
 
-        logging.info("ValidatorCATAR initialisé avec Correction + Analyse CATAR.")
+        logging.info("ValidatorCATAR initialisé avec Correction + Analyse + Compte-Rendu.")
 
     # -------------------------------------------------------------------------
-    # 03 — Interrogation du miner + Correction + Analyse
+    # 03 — Interrogation du miner + Correction + Analyse + Compte-Rendu
     # -------------------------------------------------------------------------
 
     def forward(self):
@@ -96,6 +103,7 @@ class ValidatorCATAR:
         Interroge un miner, reçoit le Passage CATAR,
         applique la Correction réelle,
         applique l’Analyse CATAR,
+        génère un Compte-Rendu CATAR,
         attribue un score global.
         """
 
@@ -117,7 +125,23 @@ class ValidatorCATAR:
         # Score global CATAR
         score_global = correction_result["score"] + analysis_result["score"]
 
-        logging.info(f"Score CATAR global : {score_global}")
+        # Passage CATAR interne (pour cohérence du rapport)
+        passage_result = {
+            "test": "Entrée envoyée par le validator",
+            "corpus": self.config.catar.corpus,
+            "control": "Contrôle interne minimal",
+            "correction": correction_result["score"],
+            "analysis": analysis_result["score"]
+        }
+
+        # Compte-Rendu CATAR
+        compte_rendu = self.cr_engine.generate(
+            passage_result=passage_result,
+            correction_result=correction_result,
+            analysis_result=analysis_result
+        )
+
+        logging.info("Compte-Rendu CATAR généré.")
 
         return {
             "miner_output": miner_output,
@@ -126,10 +150,7 @@ class ValidatorCATAR:
             "score_global": score_global,
             "markers": correction_result["markers"],
             "analysis": analysis_result,
-            "details": {
-                "correction": correction_result,
-                "analyse": analysis_result
-            }
+            "compte_rendu": compte_rendu
         }
 
     # -------------------------------------------------------------------------
