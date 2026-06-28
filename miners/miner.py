@@ -82,6 +82,7 @@ class MinerCATAR:
         result = self.passage.execute(
             test_input=test_input,
             corpus_path=self.settings["catar"]["corpus_path"]
+
         )
 
         synapse.completion = (
