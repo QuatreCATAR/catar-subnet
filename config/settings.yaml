@@ -1,29 +1,17 @@
 # settings.yaml
-# Configuration globale du Subnet CATAR
-
-# -----------------------------------------------------------------------------
-# 01 — Configuration du Corpus CATAR
-# -----------------------------------------------------------------------------
+# Configuration globale du Subnet CATAR — version adaptée à ta structure GitHub
 
 catar:
-  corpus_path: "corpus/corpus_catar.txt"
-  correction_path: "corpus/Correction.md"
-
-# -----------------------------------------------------------------------------
-# 02 — Configuration du Miner CATAR
-# -----------------------------------------------------------------------------
+  corpus_path: "02-CORPUS-CATAR/Le-Carre-CATAR.md"
+  correction_path: "04-CORRECTION/Correction.md"
 
 miner:
   name: "catar-miner"
   log_dir: "logs/miner/"
-  network: "finney"        # ou "local" selon ton environnement
-  axon_port: 8091          # port d'écoute du miner
-  hotkey: "default"        # nom du hotkey
-  coldkey: "default"       # nom du coldkey
-
-# -----------------------------------------------------------------------------
-# 03 — Configuration du Validator CATAR
-# -----------------------------------------------------------------------------
+  network: "finney"
+  axon_port: 8091
+  hotkey: "default"
+  coldkey: "default"
 
 validator:
   name: "catar-validator"
@@ -32,35 +20,19 @@ validator:
   hotkey: "default"
   coldkey: "default"
 
-# -----------------------------------------------------------------------------
-# 04 — Configuration du Passage CATAR
-# -----------------------------------------------------------------------------
-
 passage:
   enable_control: true
   enable_correction: true
   enable_analysis: true
-
-# -----------------------------------------------------------------------------
-# 05 — Configuration de l’Analyse CATAR
-# -----------------------------------------------------------------------------
 
 analysis:
   weight_moije_soije: 1.0
   weight_absolu_relatif: 1.0
   weight_dphi: 1.0
 
-# -----------------------------------------------------------------------------
-# 06 — Configuration du Compte-Rendu CATAR
-# -----------------------------------------------------------------------------
-
 compte_rendu:
   output_dir: "reports/"
-  format: "markdown"       # futur support : json, html
-
-# -----------------------------------------------------------------------------
-# 07 — Configuration générale
-# -----------------------------------------------------------------------------
+  format: "markdown"
 
 general:
   logs_enabled: true
