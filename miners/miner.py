@@ -1,9 +1,12 @@
 # miner.py
-# Miner CATAR minimal — structure de base pour Subnet Bittensor
+# Miner CATAR — version avec PassageCATAR intégré
 
 import argparse
 import logging
 import bittensor as bt
+
+# Import du Passage CATAR
+from catar_core.passage_catar import PassageCATAR
 
 # -----------------------------------------------------------------------------
 # 01 — Configuration de base du miner
@@ -23,26 +26,35 @@ def get_config():
         help="Nom du miner CATAR."
     )
 
+    parser.add_argument(
+        "--catar.corpus",
+        type=str,
+        default="corpus/corpus_catar.txt",
+        help="Chemin vers le Corpus CATAR."
+    )
+
     config = bt.config(parser)
     bt.logging(config=config, logging_dir="logs")
     return config
 
 
 # -----------------------------------------------------------------------------
-# 02 — Classe MinerCATAR minimale
+# 02 — Classe MinerCATAR avec PassageCATAR
 # -----------------------------------------------------------------------------
 
 class MinerCATAR:
     """
-    Miner CATAR minimal.
-    Pour l’instant :
+    Miner CATAR :
     - se connecte au réseau Bittensor
     - expose un axon
-    - répond avec un placeholder CATAR
+    - exécute le Passage CATAR complet
     """
 
     def __init__(self, config: bt.Config):
         self.config = config
+
+        # Passage CATAR
+        self.passage = PassageCATAR()
 
         # Wallet (coldkey + hotkey)
         self.wallet = bt.wallet(config=self.config)
@@ -63,45 +75,48 @@ class MinerCATAR:
             priority_fn=self.priority,
         )
 
-        logging.info("MinerCATAR initialisé.")
+        logging.info("MinerCATAR initialisé avec PassageCATAR.")
 
     # -------------------------------------------------------------------------
-    # 03 — Logique minimale de réponse (placeholder CATAR)
+    # 03 — Logique CATAR : exécution du Passage
     # -------------------------------------------------------------------------
 
     def forward(self, synapse: bt.Synapse) -> bt.Synapse:
         """
         Fonction appelée à chaque requête du validator.
-        Version minimale : renvoie un message CATAR générique.
-        Plus tard : intégration du Passage CATAR complet.
+        Exécute le Passage CATAR complet.
         """
 
-        # Placeholder : réponse minimale
-        synapse.completion = (
-            "Réponse CATAR minimale : le Passage complet n’est pas encore implémenté, "
-            "mais le miner est fonctionnel et prêt à intégrer le Corpus et la logique "
-            "Test → Corpus → Contrôle → Correction → Analyse."
+        # Entrée envoyée par le validator
+        test_input = synapse.prompt if hasattr(synapse, "prompt") else "Entrée CATAR par défaut"
+
+        # Exécution du Passage CATAR
+        result = self.passage.execute(
+            test_input=test_input,
+            corpus_path=self.config.catar.corpus
         )
 
-        logging.debug(f"Réponse envoyée au validator: {synapse.completion}")
+        # Réponse envoyée au validator
+        synapse.completion = (
+            f"Passage CATAR exécuté.\n"
+            f"Test : {result['test']}\n"
+            f"Corpus : {result['corpus']}\n"
+            f"Contrôle : {result['control']}\n"
+            f"Correction : {result['correction']}\n"
+            f"Analyse : {result['analysis']}"
+        )
+
+        logging.debug(f"Réponse CATAR envoyée : {synapse.completion}")
         return synapse
 
     # -------------------------------------------------------------------------
-    # 04 — Blacklist et priorité (version minimale)
+    # 04 — Blacklist et priorité
     # -------------------------------------------------------------------------
 
     def blacklist(self, synapse: bt.Synapse) -> bool:
-        """
-        Permet de refuser certaines requêtes.
-        Version minimale : aucune requête n’est blacklistée.
-        """
         return False
 
     def priority(self, synapse: bt.Synapse) -> float:
-        """
-        Permet de donner une priorité aux requêtes.
-        Version minimale : priorité constante.
-        """
         return 0.5
 
     # -------------------------------------------------------------------------
@@ -109,14 +124,10 @@ class MinerCATAR:
     # -------------------------------------------------------------------------
 
     def run(self):
-        """
-        Lance l’axon et reste en écoute.
-        """
-        logging.info("Démarrage du miner CATAR minimal...")
+        logging.info("Démarrage du miner CATAR...")
         self.axon.start()
         logging.info("Axon en écoute. MinerCATAR opérationnel.")
 
-        # Boucle infinie minimale
         try:
             while True:
                 pass
