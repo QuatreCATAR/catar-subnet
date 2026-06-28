@@ -1,5 +1,5 @@
 # validator.py
-# Validator CATAR — version avec Correction réelle intégrée
+# Validator CATAR — Passage + Correction réelle + Analyse réelle
 
 import argparse
 import logging
@@ -10,6 +10,9 @@ from catar_core.passage_catar import PassageCATAR
 
 # Import de la Correction réelle
 from catar_core.correction import CorrectionCATAR
+
+# Import de l’Analyse réelle
+from catar_core.analysis import AnalyseCATAR
 
 
 # -----------------------------------------------------------------------------
@@ -58,19 +61,23 @@ class ValidatorCATAR:
     - interroge les miners
     - reçoit le Passage CATAR exécuté
     - applique la Correction réelle
-    - attribue un score CATAR
+    - applique l’Analyse CATAR réelle
+    - attribue un score global CATAR
     """
 
     def __init__(self, config: bt.Config):
         self.config = config
 
-        # Passage CATAR (pour cohérence interne)
+        # Passage CATAR (cohérence interne)
         self.passage = PassageCATAR()
 
-        # Correction CATAR réelle
+        # Correction réelle
         self.correction_engine = CorrectionCATAR(
             correction_path=self.config.catar.correction
         )
+
+        # Analyse réelle
+        self.analysis_engine = AnalyseCATAR()
 
         # Wallet
         self.wallet = bt.wallet(config=self.config)
@@ -78,16 +85,18 @@ class ValidatorCATAR:
         # Subtensor
         self.subtensor = bt.subtensor(config=self.config)
 
-        logging.info("ValidatorCATAR initialisé avec Correction réelle.")
+        logging.info("ValidatorCATAR initialisé avec Correction + Analyse CATAR.")
 
     # -------------------------------------------------------------------------
-    # 03 — Interrogation du miner + Correction réelle
+    # 03 — Interrogation du miner + Correction + Analyse
     # -------------------------------------------------------------------------
 
     def forward(self):
         """
         Interroge un miner, reçoit le Passage CATAR,
-        applique la Correction réelle, attribue un score.
+        applique la Correction réelle,
+        applique l’Analyse CATAR,
+        attribue un score global.
         """
 
         synapse = bt.Synapse()
@@ -102,18 +111,25 @@ class ValidatorCATAR:
         # Correction réelle
         correction_result = self.correction_engine.correct(miner_output)
 
-        # Score CATAR réel
-        score = correction_result.get("score", 0.0)
-        markers = correction_result.get("markers", [])
+        # Analyse réelle
+        analysis_result = self.analysis_engine.analyse(miner_output)
 
-        logging.info(f"Score CATAR attribué : {score}")
-        logging.info(f"Invariants détectés : {markers}")
+        # Score global CATAR
+        score_global = correction_result["score"] + analysis_result["score"]
+
+        logging.info(f"Score CATAR global : {score_global}")
 
         return {
             "miner_output": miner_output,
-            "score": score,
-            "markers": markers,
-            "details": correction_result
+            "score_correction": correction_result["score"],
+            "score_analyse": analysis_result["score"],
+            "score_global": score_global,
+            "markers": correction_result["markers"],
+            "analysis": analysis_result,
+            "details": {
+                "correction": correction_result,
+                "analyse": analysis_result
+            }
         }
 
     # -------------------------------------------------------------------------
