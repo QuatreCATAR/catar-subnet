@@ -141,4 +141,108 @@ Chaque proposition doit inclure :
 
 ---
 
+# 07 — Économie interne et implications
+Le Subnet CATAR repose sur un modèle économique équitable, fondé sur une répartition 50/50 des émissions entre miners et validateurs.
+Ce choix structurel influence directement la stabilité, la gouvernance et l’évolution du projet.
+
+7.1 — Répartition 50/50
+50% des émissions pour les validateurs
+
+50% des émissions pour les miners
+
+modèle simple, transparent et durable
+
+cohérence avec la logique du JEu (équilibre, non‑domination)
+
+7.2 — Implications pour le développement
+les modules Miner et Validator doivent rester équilibrés en complexité
+
+les mises à jour ne doivent pas favoriser un rôle au détriment de l’autre
+
+les mécanismes d’évaluation doivent être robustes et non manipulables
+
+le subnet doit rester gratuit pour les utilisateurs finaux
+
+la documentation doit expliciter clairement le modèle économique
+
+7.3 — Implications pour la communauté
+incitation à contribuer via un modèle juste
+
+attractivité pour les développeurs (pas de caste dominante)
+
+possibilité d’évolution future via des mécanismes additionnels
+
+compatibilité avec une gouvernance ouverte et transmissible
+
+7.4 — Implications pour la sécurité
+réduction des risques de capture économique
+
+limitation des dérives liées au volume ou à l’élitisme
+
+stabilité cognitive renforcée par la symétrie des rôles
+
+---
+
+# 08 — Gouvernance et transmission du projet
+La gouvernance du Subnet CATAR repose sur le système officiel de propriété par conviction du réseau Bittensor.
+Ce mécanisme garantit la stabilité du subnet, sa protection contre les prises de contrôle externes, et sa transmissibilité à long terme.
+
+8.1 — Propriété par conviction
+maturation sur ~30 jours
+
+seuil de challenge à 10%
+
+protection contre les attaques économiques
+
+stabilité de la propriété dans le temps
+
+possibilité de transfert ou de succession
+
+8.2 — Locking volontaire
+chaque contributeur choisit librement de locker du TAO
+
+aucune obligation morale ou technique
+
+locking = signal de confiance et d’engagement
+
+locking = augmentation de la part des émissions
+
+locking = stabilisation de la gouvernance
+
+8.3 — Transmission du projet
+Le Subnet CATAR doit rester :
+
+compréhensible,
+
+documenté,
+
+modulaire,
+
+reproductible,
+
+transmissible à n’importe quel contributeur.
+
+La transmission repose sur :
+
+une documentation claire (README, ROADMAP, CONTRIBUTING),
+
+une architecture modulaire,
+
+un code minimal viable pour miner et validator,
+
+une gouvernance stable par conviction,
+
+une communauté capable de reprendre le projet.
+
+8.4 — Vision long terme
+possibilité de passage à une gouvernance DAO
+
+possibilité de transfert à une fondation
+
+possibilité de succession automatique via conviction
+
+pérennité du projet même sans son créateur
+
+---
+
 # Fin de ROADMAP.md
