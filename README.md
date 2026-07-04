@@ -7,6 +7,22 @@ CATAR Subnet — Système de structuration, stabilisation et autodétermination 
 # Subnet CATAR  
 Architecture conceptuelle et cognitive basée sur le Corpus CATAR
 
+# 📘 Sommaire
+
+1. 01 — Présentation générale  
+2. 02 — Structure du Subnet  
+3. 03 — Logique du Passage CATAR  
+4. 04 — Contenu du dépôt  
+5. 05 — Utilisation  
+6. 06 — Licence  
+7. 07 — Auteur et intention  
+8. 08 — Architecture du Subnet  
+9. 09 — Économie interne (50/50)  
+10. 10 — Gouvernance et Conviction  
+11. 11 — Installation et Déploiement  
+12. 12 — Roadmap CATAR  
+13. 13 — Novelty Search  
+
 ---
 
 # 01 — Présentation générale
@@ -305,6 +321,22 @@ CATAR se positionne comme un subnet unique, capable d’apporter une valeur conc
 # CATAR Subnet  
 Conceptual and cognitive architecture based on the CATAR Corpus
 
+# 📘 Table of Contents
+
+1. 01 — Overview  
+2. 02 — Subnet Structure  
+3. 03 — The CATAR Passage Logic  
+4. 04 — Repository Contents  
+5. 05 — How to Use  
+6. 06 — License  
+7. 07 — Author & Intent  
+8. 08 — Subnet Architecture  
+9. 09 — Internal Economy (50/50)  
+10. 10 — Governance and Conviction  
+11. 11 — Installation and Deployment  
+12. 12 — CATAR Roadmap  
+13. 13 — Novelty Search  
+
 ---
 
 # 01 — Overview
@@ -602,6 +634,22 @@ CATAR positions itself as a unique subnet capable of providing conceptual and co
 # Subred CATAR  
 Arquitectura conceptual y cognitiva basada en el Corpus CATAR
 
+# 📘 Índice
+
+1. 01 — Presentación general  
+2. 02 — Estructura de la Subred  
+3. 03 — Lógica del Pasaje CATAR  
+4. 04 — Contenido del repositorio  
+5. 05 — Cómo utilizar  
+6. 06 — Licencia  
+7. 07 — Autor e intención  
+8. 08 — Arquitectura de la Subred  
+9. 09 — Economía interna (50/50)  
+10. 10 — Gobernanza y Convicción  
+11. 11 — Instalación y Despliegue  
+12. 12 — Hoja de ruta CATAR  
+13. 13 — Novelty Search  
+
 ---
 
 # 01 — Presentación general
@@ -898,6 +946,22 @@ CATAR se posiciona como una subred única capaz de aportar valor conceptual y co
 
 # CATAR 子网  
 基于 CATAR 语料库的概念与认知架构
+
+# 📘 目录
+
+1. 01 — 总体介绍  
+2. 02 — 子网结构  
+3. 03 — CATAR 通关逻辑  
+4. 04 — 仓库内容  
+5. 05 — 使用方法  
+6. 06 — 许可证  
+7. 07 — 作者与意图  
+8. 08 — 子网架构  
+9. 09 — 内部经济（50/50）  
+10. 10 — 治理与信念值  
+11. 11 — 安装与部署  
+12. 12 — CATAR 路线图  
+13. 13 — Novelty Search  
 
 ---
 
