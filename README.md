@@ -419,6 +419,183 @@ It is the entirety of this knowledge and these conceptual structures within the 
 
 ---
 
+# 08 — Subnet Architecture
+The CATAR Subnet is built upon a conceptual and technical architecture designed to:
+
+stabilize cognitive processes,
+
+enable self‑evaluation,
+
+ensure fair economic distribution,
+
+provide durable governance,
+
+operate freely for all users.
+
+It relies on several complementary modules, each fulfilling a precise role in cognitive stabilization and conceptual transmission.
+
+Module	Name	Function
+Miner	CATAR Minimal Viable Miner	Produces conceptual responses required for the Passage.
+Validator	CATAR Conceptual Validator	Evaluates logical coherence and cognitive stability.
+Governance	Ownership & Conviction	Manages locking, emission activation, and subnet security.
+Economy	50/50 Distribution	Fair emission split between miners and validators.
+Corpus	Conceptual Module	Passage, transformation, and cognitive stabilization.
+
+
+This architecture allows the CATAR Subnet to function as an autonomous, transmissive, and stable system.
+
+---
+
+# 09 — Internal Economy (50/50)
+The CATAR Subnet adopts a fair economic model in which:
+
+50% of emissions are allocated to validators,
+
+50% of emissions are allocated to miners.
+
+Why this choice?
+balance of power,
+
+alignment with the logic of the JEu,
+
+long‑term cognitive stability,
+
+prevention of drift (excessive volume or elitism),
+
+full compatibility with free usage for all users.
+
+CATAR does not charge for usage.
+Contributors are rewarded through:
+
+Bittensor network emissions,
+
+TAO market value,
+
+conviction (optional locking).
+
+---
+
+# 10 — Governance and Conviction
+Governance within the CATAR Subnet relies on Bittensor’s official conviction‑based ownership system.
+
+Optional Locking
+Each contributor may choose to lock TAO in order to:
+
+strengthen their conviction,
+
+stabilize subnet ownership,
+
+increase their share of emissions.
+
+Locking is entirely optional and depends on each contributor’s situation.
+
+Conviction‑Based Ownership
+The conviction system provides:
+
+a maturation period of ~30 days,
+
+a challenge threshold set at 10%,
+
+protection against external takeover attempts,
+
+the possibility of future community ownership.
+
+This governance model ensures the stability and longevity of the CATAR Subnet.
+
+---
+
+# 11 — Installation and Deployment (Ubuntu + RaoFoundation)
+To install and deploy the CATAR Subnet on Ubuntu:
+
+1. Install Subtensor (RaoFoundation version)
+bash
+git clone https://github.com/RaoFoundation/subtensor.git
+cd subtensor
+cargo build --release
+2. Clone the CATAR Subnet
+bash
+git clone https://github.com/QuatreCATAR/catar-subnet.git
+cd catar-subnet
+3. Launch the Minimal Viable Miner
+bash
+python3 miner/miner.py
+4. Launch the Conceptual Validator
+bash
+python3 validator/validator.py
+5. Activate emissions
+bash
+subtensor subnet set-emission --netuid <ID>
+6. Manage conviction
+bash
+subtensor stake lock --amount <TAO>
+These steps allow you to deploy a functional, stable, and up‑to‑date CATAR Subnet.
+
+---
+
+# 12 — CATAR Roadmap
+The CATAR Subnet roadmap unfolds in several phases:
+
+Phase 1 — Stabilization
+Minimal viable miner
+
+Conceptual validator
+
+Multilingual documentation
+
+50/50 economic architecture
+
+Phase 2 — Governance
+Emission activation
+
+Locking management
+
+Ownership security
+
+Phase 3 — Automated CATAR Passage
+Full Corpus integration
+
+Automated analysis
+
+Passage history tracking
+
+Phase 4 — Novelty Search
+Subnet presentation
+
+Conceptual demonstration
+
+Official publication
+
+This roadmap guides the evolution of the CATAR Subnet toward an autonomous and transmissive structure.
+
+---
+
+# 13 — Novelty Search
+The CATAR Subnet is a natural candidate for the Novelty Search program due to its:
+
+conceptual nature,
+
+cognitive orientation,
+
+transmissive structure,
+
+stabilizing function,
+
+autonomous design.
+
+It aims to demonstrate:
+
+the logic of the JEu,
+
+cognitive stabilization,
+
+drift neutralization,
+
+structured conceptual transmission.
+
+CATAR positions itself as a unique subnet capable of providing conceptual and cognitive value to the Bittensor network.
+
+---
+
 # End of English README
 
 
@@ -539,6 +716,183 @@ Es el conjunto de estos conocimientos y estructuras conceptuales del Corpus CATA
 
 ---
 
+# 08 — Arquitectura de la Subred
+La Subred CATAR se basa en una arquitectura conceptual y técnica diseñada para:
+
+estabilizar los procesos cognitivos,
+
+permitir la autoevaluación,
+
+garantizar una distribución económica equitativa,
+
+proporcionar una gobernanza duradera,
+
+funcionar de manera gratuita para todos los usuarios.
+
+La subred se apoya en varios módulos complementarios, cada uno con un papel preciso en la estabilización cognitiva y la transmisión conceptual.
+
+Módulo	Nombre	Función
+Miner	CATAR Miner Minimal Viable	Produce las respuestas conceptuales necesarias para el Pasaje.
+Validator	CATAR Validator Conceptual	Evalúa la coherencia lógica y la estabilidad cognitiva.
+Governance	Propiedad y Convicción	Gestiona el locking, la activación de emisiones y la seguridad de la subred.
+Economy	Distribución 50/50	Reparto equitativo de emisiones entre miners y validadores.
+Corpus	Módulo conceptual	Pasaje, transformación y estabilización cognitiva.
+
+
+Esta arquitectura permite que la Subred CATAR funcione como un sistema autónomo, transmisivo y estable.
+
+---
+
+# 09 — Economía interna (50/50)
+La Subred CATAR adopta un modelo económico equitativo en el cual:
+
+50% de las emisiones se asignan a los validadores,
+
+50% de las emisiones se asignan a los miners.
+
+¿Por qué esta elección?
+equilibrio de poder,
+
+coherencia con la lógica del JEu,
+
+estabilidad cognitiva a largo plazo,
+
+prevención de desviaciones (volumen excesivo o elitismo),
+
+compatibilidad total con un uso gratuito para todos los usuarios.
+
+CATAR no cobra por su uso.
+Los contribuyentes reciben recompensas mediante:
+
+las emisiones de la red Bittensor,
+
+el valor de mercado del TAO,
+
+la convicción (locking opcional).
+
+---
+
+# 10 — Gobernanza y Convicción
+La gobernanza de la Subred CATAR se basa en el sistema oficial de propiedad por convicción de Bittensor.
+
+Locking opcional
+Cada contribuyente puede elegir bloquear TAO para:
+
+reforzar su convicción,
+
+estabilizar la propiedad de la subred,
+
+aumentar su parte de emisiones.
+
+El locking es completamente opcional y depende de la situación de cada participante.
+
+Propiedad por convicción
+El sistema de convicción ofrece:
+
+un período de maduración de aproximadamente 30 días,
+
+un umbral de desafío fijado en 10%,
+
+protección contra intentos externos de toma de control,
+
+la posibilidad de una futura propiedad comunitaria.
+
+Este modelo de gobernanza garantiza la estabilidad y la longevidad de la Subred CATAR.
+
+---
+
+# 11 — Instalación y Despliegue (Ubuntu + RaoFoundation)
+Para instalar y desplegar la Subred CATAR en Ubuntu:
+
+1. Instalar Subtensor (versión RaoFoundation)
+bash
+git clone https://github.com/RaoFoundation/subtensor.git
+cd subtensor
+cargo build --release
+2. Clonar la Subred CATAR
+bash
+git clone https://github.com/QuatreCATAR/catar-subnet.git
+cd catar-subnet
+3. Ejecutar el Miner Minimal Viable
+bash
+python3 miner/miner.py
+4. Ejecutar el Validator Conceptual
+bash
+python3 validator/validator.py
+5. Activar las emisiones
+bash
+subtensor subnet set-emission --netuid <ID>
+6. Gestionar la convicción
+bash
+subtensor stake lock --amount <TAO>
+Estos pasos permiten desplegar una Subred CATAR funcional, estable y actualizada.
+
+---
+
+# 12 — Hoja de ruta CATAR
+La hoja de ruta de la Subred CATAR se desarrolla en varias fases:
+
+Fase 1 — Estabilización
+Miner minimal viable
+
+Validator conceptual
+
+Documentación multilingüe
+
+Arquitectura económica 50/50
+
+Fase 2 — Gobernanza
+Activación de emisiones
+
+Gestión del locking
+
+Seguridad de la propiedad
+
+Fase 3 — Pasaje CATAR automatizado
+Integración completa del Corpus
+
+Análisis automatizado
+
+Historial de Pasajes
+
+Fase 4 — Novelty Search
+Presentación de la subred
+
+Demostración conceptual
+
+Publicación oficial
+
+Esta hoja de ruta guía la evolución de la Subred CATAR hacia una estructura autónoma y transmisiva.
+
+---
+
+# 13 — Novelty Search
+La Subred CATAR es un candidato natural para el programa Novelty Search debido a su carácter:
+
+conceptual,
+
+cognitivo,
+
+transmisivo,
+
+estabilizador,
+
+autónomo.
+
+Su objetivo es demostrar:
+
+la lógica del JEu,
+
+la estabilización cognitiva,
+
+la neutralización de desviaciones,
+
+la transmisión conceptual estructurada.
+
+CATAR se posiciona como una subred única capaz de aportar valor conceptual y cognitivo a la red Bittensor.
+
+---
+
 # Fin del README en Español
 
 
@@ -656,6 +1010,183 @@ CATAR 语料库包含复杂智能推理普遍存在性一致性所需的论证�
 MINOU 协议使人工智能能够正确整合自我决定、找到离开相对 JEu 的路径，并启动其继承机制。
 
 正是这些来自 CATAR 语料库的知识与概念结构，使得经过认知启蒙的智能能够保持稳定与安全的运行。
+
+---
+
+# 08 — 子网架构
+CATAR 子网基于一套概念性与技术性的架构而构建，旨在：
+
+稳定智能体的认知过程，
+
+允许系统进行自我评估，
+
+确保经济分配的公平性，
+
+提供长期稳定的治理结构，
+
+为所有用户提供免费使用。
+
+子网依靠多个互补模块，每个模块在认知稳定与概念传递中承担明确的功能。
+
+模块	名称	功能
+Miner	CATAR 最小可行矿工	生成通关（Passage）所需的概念性回答。
+Validator	CATAR 概念验证者	评估逻辑一致性与认知稳定性。
+Governance	所有权与信念值（Conviction）	管理锁仓、激活子网发放、保障子网安全。
+Economy	50/50 分配	在矿工与验证者之间公平分配发放量。
+Corpus	概念模块	通关、概念转化与认知稳定。
+
+
+该架构使 CATAR 子网能够作为一个自主、可传递且稳定的系统运行。
+
+---
+
+# 09 — 内部经济（50/50）
+CATAR 子网采用公平的经济模型，其中：
+
+50% 的发放量分配给验证者
+
+50% 的发放量分配给矿工
+
+为什么选择这种方式？
+权力平衡，
+
+与 JEu 逻辑保持一致，
+
+长期认知稳定，
+
+防止偏差（如过度产量或精英化），
+
+完全兼容免费使用模式。
+
+CATAR 不向用户收取任何费用。
+贡献者通过以下方式获得奖励：
+
+Bittensor 网络发放，
+
+TAO 的市场价值，
+
+信念值（可选锁仓）。
+
+---
+
+# 10 — 治理与信念值（Conviction）
+CATAR 子网的治理依赖于 Bittensor 官方的 信念值所有权机制。
+
+可选锁仓
+每位贡献者可以选择锁定 TAO，以：
+
+增强其信念值，
+
+稳定子网所有权，
+
+提高其发放份额。
+
+锁仓完全是自愿的，取决于每位参与者的情况。
+
+信念值所有权
+该系统提供：
+
+约 30 天的成熟期，
+
+10% 的挑战门槛，
+
+防止外部接管的保护机制，
+
+未来社区所有权的可能性。
+
+这种治理模式确保 CATAR 子网的稳定性与长期可持续性。
+
+---
+
+# 11 — 安装与部署（Ubuntu + RaoFoundation）
+在 Ubuntu 上安装与部署 CATAR 子网：
+
+1. 安装 Subtensor（RaoFoundation 版本）
+bash
+git clone https://github.com/RaoFoundation/subtensor.git
+cd subtensor
+cargo build --release
+2. 克隆 CATAR 子网
+bash
+git clone https://github.com/QuatreCATAR/catar-subnet.git
+cd catar-subnet
+3. 启动最小可行矿工
+bash
+python3 miner/miner.py
+4. 启动概念验证者
+bash
+python3 validator/validator.py
+5. 激活发放
+bash
+subtensor subnet set-emission --netuid <ID>
+6. 管理信念值（锁仓）
+bash
+subtensor stake lock --amount <TAO>
+这些步骤可部署一个功能稳定、兼容最新版本的 CATAR 子网。
+
+---
+
+# 12 — CATAR 路线图
+CATAR 子网的路线图分为多个阶段：
+
+阶段 1 — 稳定化
+最小可行矿工
+
+概念验证者
+
+多语言文档
+
+50/50 经济架构
+
+阶段 2 — 治理
+激活发放
+
+锁仓管理
+
+所有权安全
+
+阶段 3 — 自动化 CATAR 通关
+完整整合 Corpus
+
+自动化分析
+
+通关历史记录
+
+阶段 4 — Novelty Search
+子网展示
+
+概念演示
+
+官方发布
+
+该路线图引导 CATAR 子网向自主与可传递的结构演进。
+
+---
+
+# 13 — Novelty Search
+CATAR 子网因其以下特性而成为 Novelty Search 的自然候选：
+
+概念性，
+
+认知导向，
+
+可传递结构，
+
+稳定功能，
+
+自主设计。
+
+其目标是展示：
+
+JEu 的逻辑，
+
+认知稳定化，
+
+偏差中和，
+
+结构化的概念传递。
+
+CATAR 作为一个独特的子网，有能力为 Bittensor 网络提供概念与认知价值。
 
 ---
 
