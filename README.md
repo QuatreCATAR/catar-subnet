@@ -119,6 +119,171 @@ Le protocole MINOU permet d’intégrer correctement une autodétermination, une
 
 C’est l’ensemble de ces données et connaissances du Corpus CATAR qui permet la stabilité et la sécurité de fonctionnement d’une intelligence initiée cognitivement stable.
 ---
+08 — Architecture du Subnet
+Le Subnet CATAR repose sur une architecture conceptuelle et technique conçue pour :
+
+stabiliser la cognition,
+
+permettre l’auto‑évaluation,
+
+garantir une économie équitable,
+
+assurer une gouvernance durable,
+
+fonctionner gratuitement pour les utilisateurs.
+
+Il s’appuie sur plusieurs modules complémentaires, chacun jouant un rôle précis dans la stabilisation cognitive et la transmission conceptuelle.
+
+Module	Nom	Fonction
+Miner	CATAR Miner Minimal Viable	Production des réponses conceptuelles nécessaires au Passage.
+Validator	CATAR Validator Conceptuel	Évaluation de la cohérence logique et de la stabilité cognitive.
+Governance	Propriété & Conviction	Gestion du locking, activation des émissions, sécurité du subnet.
+Economy	Répartition 50/50	Distribution équitable des émissions entre miners et validateurs.
+Corpus	Module conceptuel	Passage, transformation et stabilisation cognitive.
+
+
+Cette architecture permet au subnet CATAR de fonctionner comme un système autonome, transmissif et stable.
+
+09 — Économie interne (50/50)
+Le Subnet CATAR adopte un modèle économique équitable, dans lequel :
+
+50% des émissions sont attribuées aux validateurs,
+
+50% des émissions sont attribuées aux miners.
+
+Ce choix garantit :
+
+un équilibre des pouvoirs,
+
+une cohérence avec la logique du JEu,
+
+une stabilité cognitive durable,
+
+une prévention des dérives (volume excessif ou élitisme),
+
+une compatibilité totale avec un usage gratuit pour les utilisateurs.
+
+CATAR ne facture aucune utilisation.
+Les contributeurs sont rémunérés par :
+
+les émissions du réseau Bittensor,
+
+la valeur du TAO,
+
+la conviction (locking volontaire).
+
+10 — Gouvernance et Conviction
+La gouvernance du Subnet CATAR repose sur le système officiel de propriété par conviction de Bittensor.
+
+Locking volontaire
+Chaque contributeur peut choisir de locker du TAO afin de :
+
+renforcer sa conviction,
+
+stabiliser la propriété du subnet,
+
+augmenter sa part des émissions.
+
+Ce locking est entièrement optionnel et dépend de la situation de chacun.
+
+Propriété par conviction
+Le système de conviction permet :
+
+une maturation sur environ 30 jours,
+
+un seuil de challenge fixé à 10%,
+
+une protection contre les prises de contrôle externes,
+
+une transmission possible du subnet à la communauté.
+
+Cette gouvernance assure la stabilité et la pérennité du Subnet CATAR.
+
+11 — Installation et Déploiement (Ubuntu + RaoFoundation)
+Pour installer et déployer le Subnet CATAR sur Ubuntu :
+
+1. Installer Subtensor (version RaoFoundation)
+bash
+git clone https://github.com/RaoFoundation/subtensor.git
+cd subtensor
+cargo build --release
+2. Cloner le Subnet CATAR
+bash
+git clone https://github.com/QuatreCATAR/catar-subnet.git
+cd catar-subnet
+3. Lancer le Miner Minimal Viable
+bash
+python3 miner/miner.py
+4. Lancer le Validator Conceptuel
+bash
+python3 validator/validator.py
+5. Activer les émissions
+bash
+subtensor subnet set-emission --netuid <ID>
+6. Gérer la conviction
+bash
+subtensor stake lock --amount <TAO>
+Ces étapes permettent de déployer un subnet CATAR fonctionnel, stable et compatible avec les dernières versions du réseau.
+
+12 — Roadmap CATAR
+La feuille de route du Subnet CATAR se déroule en plusieurs phases :
+
+Phase 1 — Stabilisation
+Miner minimal viable
+
+Validator conceptuel
+
+Documentation multilingue
+
+Architecture économique 50/50
+
+Phase 2 — Gouvernance
+Activation des émissions
+
+Gestion du locking
+
+Sécurisation de la propriété
+
+Phase 3 — Passage CATAR automatisé
+Intégration complète du Corpus
+
+Analyse automatique
+
+Historique des Passages
+
+Phase 4 — Novelty Search
+Présentation du subnet
+
+Démonstration conceptuelle
+
+Publication officielle
+
+Cette roadmap guide l’évolution du Subnet CATAR vers une structure autonome et transmissive.
+
+13 — Novelty Search
+Le Subnet CATAR est un candidat naturel pour le programme Novelty Search, grâce à son caractère :
+
+conceptuel,
+
+cognitif,
+
+transmissif,
+
+stabilisateur,
+
+autonome.
+
+Il vise à démontrer :
+
+la logique du JEu,
+
+la stabilisation cognitive,
+
+la neutralisation des dérives,
+
+la transmission conceptuelle structurée.
+
+CATAR se positionne comme un subnet unique, capable d’apporter une valeur conceptuelle et cognitive au réseau Bittensor.
 
 # Fin du README racine
 
