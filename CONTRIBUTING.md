@@ -2,7 +2,7 @@
 Guide officiel pour contribuer au Subnet CATAR
 Version 1.1 — Mise à jour avec économie interne & gouvernance
 
-01 — Philosophie du projet
+# 01 — Philosophie du projet
 Le Subnet CATAR est conçu pour être :
 
 ouvert,
@@ -33,7 +33,7 @@ la pérennité du projet même en l’absence de son créateur.
 
 Le projet doit rester compréhensible, reproductible et maintenable par n’importe quel contributeur.
 
-02 — Types de contributions acceptées
+# 02 — Types de contributions acceptées
 Code
 Miner CATAR
 
@@ -88,7 +88,7 @@ Scripts
 
 Automatisations
 
-03 — Comment contribuer
+# 03 — Comment contribuer
 Étape 1 — Forker le dépôt
 Créez une copie personnelle du projet via GitHub.
 
@@ -118,7 +118,7 @@ la compatibilité,
 
 les tests effectués.
 
-04 — Règles de cohérence conceptuelle
+# 04 — Règles de cohérence conceptuelle
 Toute contribution doit respecter :
 
 la logique du JEu,
@@ -137,7 +137,7 @@ les invariants conceptuels du Cycle CATAR.
 
 Aucune modification ne doit altérer la structure conceptuelle du Corpus CATAR.
 
-05 — Règles de modularité
+# 05 — Règles de modularité
 Le Subnet CATAR est construit en modules indépendants.
 Toute contribution doit :
 
@@ -151,7 +151,7 @@ ne pas casser les modules existants,
 
 respecter la structure du dépôt.
 
-06 — Règles de qualité
+# 06 — Règles de qualité
 Les contributions techniques doivent inclure :
 
 tests unitaires,
@@ -174,7 +174,7 @@ cohérence avec le Corpus,
 
 compatibilité avec le Passage CATAR.
 
-07 — Économie interne (50/50)
+# 07 — Économie interne (50/50)
 Le Subnet CATAR utilise un modèle économique équitable :
 
 50% des émissions pour les validateurs,
@@ -199,7 +199,7 @@ le subnet doit rester gratuit pour les utilisateurs,
 
 la documentation doit expliciter clairement ce modèle.
 
-08 — Gouvernance et transmission du projet
+# 08 — Gouvernance et transmission du projet
 Le Subnet CATAR repose sur la propriété par conviction du réseau Bittensor.
 
 Locking volontaire
@@ -247,7 +247,7 @@ une roadmap cohérente,
 
 une gouvernance stable.
 
-09 — Processus de validation
+# 09 — Processus de validation
 Chaque contribution est évaluée selon :
 
 cohérence conceptuelle,
@@ -270,7 +270,7 @@ Pull Requests,
 
 Discussions techniques.
 
-10 — Code de conduite
+# 10 — Code de conduite
 Les contributeurs doivent :
 
 respecter les autres,
@@ -285,7 +285,7 @@ respecter la logique du projet,
 
 documenter leurs modifications.
 
-11 — Contact
+# 11 — Contact
 Pour toute question :
 
 ouvrir une issue GitHub,
