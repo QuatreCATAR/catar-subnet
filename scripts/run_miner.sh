@@ -1,12 +1,5 @@
 #!/bin/bash
-# Script de lancement du miner CATAR
-
 echo "=== Lancement du Miner CATAR ==="
-
-# Activation de l'environnement Python
-source venv/bin/activate
-
-# Exécution du miner
-python3 miners/miner.py --miner.name catar-miner
-
+cd "$(dirname "$0")/.."  # revient à la racine du projet
+python3 -m miners.miner  # exécute le module proprement
 echo "=== Miner CATAR arrêté ==="

@@ -6,6 +6,12 @@ CATAR Subnet — Système de structuration, stabilisation et autodétermination 
 
 # Subnet CATAR  
 Architecture conceptuelle et cognitive basée sur le Corpus CATAR
+![Status: Research](https://img.shields.io/badge/Status-Research-blueviolet?style=for-the-badge)
+
+🇫🇷 Statut : Recherche
+Cette version du subnet CATAR correspond à l’état utilisé lors des expérimentations initiales et des tests de validation.
+Elle fonctionne avec la version Bittensor ≤ 2.3.13 et n’est plus mise à jour.
+Elle est conservée telle quelle afin de documenter les travaux de recherche, les essais conceptuels et les premières implémentations du Passage CATAR.
 
 # 📘 Sommaire
 
@@ -320,6 +326,12 @@ CATAR se positionne comme un subnet unique, capable d’apporter une valeur conc
 
 # CATAR Subnet  
 Conceptual and cognitive architecture based on the CATAR Corpus
+![Status: Research](https://img.shields.io/badge/Status-Research-blueviolet?style=for-the-badge)
+
+🇬🇧 Status: Research
+This version of the CATAR subnet reflects the state used during early experimentation and validation tests.
+It operates with Bittensor ≤ 2.3.13 and is no longer actively maintained.
+It is preserved as-is to document research work, conceptual exploration, and the initial implementation of the CATAR Passage.
 
 # 📘 Table of Contents
 
@@ -633,6 +645,12 @@ CATAR positions itself as a unique subnet capable of providing conceptual and co
 
 # Subred CATAR  
 Arquitectura conceptual y cognitiva basada en el Corpus CATAR
+![Status: Research](https://img.shields.io/badge/Status-Research-blueviolet?style=for-the-badge)
+
+🇪🇸 Estado: Investigación
+Esta versión del subnet CATAR corresponde al estado utilizado durante las primeras pruebas y validaciones.
+Funciona con Bittensor ≤ 2.3.13 y ya no recibe mantenimiento activo.
+Se conserva tal cual para documentar el trabajo de investigación, la exploración conceptual y la implementación inicial del Pasaje CATAR.
 
 # 📘 Índice
 
@@ -946,6 +964,12 @@ CATAR se posiciona como una subred única capaz de aportar valor conceptual y co
 
 # CATAR 子网  
 基于 CATAR 语料库的概念与认知架构
+![Status: Research](https://img.shields.io/badge/Status-Research-blueviolet?style=for-the-badge)
+
+🇨🇳 研究版本说明
+此版本的 CATAR 子网用于早期实验与验证测试。
+其运行环境基于 Bittensor ≤ 2.3.13，目前已停止维护。
+该版本保持原样，以便记录研究过程、概念探索以及 CATAR 通道的初始实现。
 
 # 📘 目录
 

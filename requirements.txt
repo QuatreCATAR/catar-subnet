@@ -1,2 +1,3 @@
-bittensor
+bittensor==2.3.13.4
+
 

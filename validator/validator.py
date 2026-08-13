@@ -1,139 +1,149 @@
-# validator.py
-# Validator CATAR — Passage + Correction + Analyse + Compte-Rendu + settings.yaml
-
+import time
 import argparse
 import logging
 import bittensor as bt
 import yaml
 import os
+from pathlib import Path
+import sys
 
-# Import modules CATAR
-from catar_core.passage_catar import PassageCATAR
-from catar_core.correction import CorrectionCATAR
-from catar_core.analysis import AnalyseCATAR
-from catar_core.compte_rendu import CompteRenduCATAR
+# Synapse CATAR
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'synapses')))
+from synapse_catar import SynapseCATAR
 
+SECTION_WEIGHTS = {
+    "Corpus": 3,
+    "Control": 2,
+    "Correction": 2,
+    "Analysis": 3,
+    "test": 1,
+}
 
-# -----------------------------------------------------------------------------
-# 01 — Chargement de settings.yaml
-# -----------------------------------------------------------------------------
+logging.basicConfig(
+    filename="logs/validator/validator.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 def load_settings():
     settings_path = os.path.join("config", "settings.yaml")
     with open(settings_path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
-
-# -----------------------------------------------------------------------------
-# 02 — Configuration du validator
-# -----------------------------------------------------------------------------
-
 def get_config():
     parser = argparse.ArgumentParser()
-    bt.wallet.add_args(parser)
-    bt.subtensor.add_args(parser)
+    bt.Wallet.add_args(parser)
+    bt.Subtensor.add_args(parser)
     bt.logging.add_args(parser)
 
-    config = bt.config(parser)
+    config = bt.Config(parser)
     bt.logging(config=config, logging_dir="logs/validator")
 
     return config
-
-
-# -----------------------------------------------------------------------------
-# 03 — Classe ValidatorCATAR
-# -----------------------------------------------------------------------------
 
 class ValidatorCATAR:
     def __init__(self, config: bt.Config):
         self.config = config
         self.settings = load_settings()
 
-        # Passage CATAR
-        self.passage = PassageCATAR()
+        # Wallet / Subtensor / Dendrite
+        self.wallet = bt.Wallet(name="catar_validator", hotkey="catar_validator")
+        self.subtensor = bt.Subtensor(config=self.config)
+        self.dendrite = bt.Dendrite(wallet=self.wallet)
 
-        # Correction réelle
-        self.correction_engine = CorrectionCATAR(
-            correction_path=self.settings["catar"]["correction_path"]
+        logging.info("ValidatorCATAR initialisé (réseau).")
+
+    def query_miner(self, prompt: str) -> dict:
+        synapse = SynapseCATAR(prompt=prompt)
+
+        axons = self.subtensor.neurons(self.config.netuid)
+        if not axons:
+            logging.warning("Aucun axon trouvé sur le subnet CATAR.")
+            return {}
+
+        response = self.dendrite.forward(
+            synapse=synapse,
+            axons=[axons[0]],
         )
 
-        # Analyse réelle
-        self.analysis_engine = AnalyseCATAR()
+        return response.to_dict()
 
-        # Compte-Rendu CATAR
-        self.cr_engine = CompteRenduCATAR()
+    def score_presence(self, miner_output):
+        return sum(SECTION_WEIGHTS[k] for k in SECTION_WEIGHTS if k in miner_output)
 
-        # Wallet
-        self.wallet = bt.wallet(config=self.config)
+    def score_coherence(self, miner_output):
+        coherence = 0
 
-        # Subtensor
-        self.subtensor = bt.subtensor(config=self.config)
+        corpus = miner_output.get("Corpus", "")
+        analysis = miner_output.get("Analysis", "")
+        correction = miner_output.get("Correction", "")
+        control = miner_output.get("Control", "")
 
-        logging.info("ValidatorCATAR initialisé avec settings.yaml.")
+        if corpus and analysis and corpus[:20] in analysis:
+            coherence += 2
 
-    # -------------------------------------------------------------------------
-    # 04 — Passage + Correction + Analyse + Compte-Rendu
-    # -------------------------------------------------------------------------
+        if correction and corpus and len(correction) > len(corpus):
+            coherence += 2
 
-    def forward(self):
-        synapse = bt.Synapse()
-        response = self.subtensor.query(wallet=self.wallet, synapse=synapse)
+        if control and "cohérent" in control.lower():
+            coherence += 2
 
-        miner_output = response.completion
+        return coherence
 
-        correction_result = self.correction_engine.correct(miner_output)
-        analysis_result = self.analysis_engine.analyse(miner_output)
+    def score_semantic(self, miner_output):
+        from difflib import SequenceMatcher
 
-        score_global = correction_result["score"] + analysis_result["score"]
+        corpus = miner_output.get("Corpus", "")
+        analysis = miner_output.get("Analysis", "")
 
-        passage_result = {
-            "test": "Entrée envoyée par le validator",
-            "corpus": self.settings["catar"]["corpus_path"],
-            "control": "Contrôle interne minimal",
-            "correction": correction_result["score"],
-            "analysis": analysis_result["score"]
-        }
+        if not corpus or not analysis:
+            return 0
 
-        compte_rendu = self.cr_engine.generate(
-            passage_result=passage_result,
-            correction_result=correction_result,
-            analysis_result=analysis_result
-        )
+        return SequenceMatcher(None, corpus, analysis).ratio()
+
+    def compute_catar_score(self, miner_output):
+        presence = self.score_presence(miner_output)
+        coherence = self.score_coherence(miner_output)
+        semantic = self.score_semantic(miner_output)
+
+        final_score = (presence * 0.5) + (coherence * 0.3) + (semantic * 0.2)
 
         return {
-            "miner_output": miner_output,
-            "score_correction": correction_result["score"],
-            "score_analyse": analysis_result["score"],
-            "score_global": score_global,
-            "markers": correction_result["markers"],
-            "analysis": analysis_result,
-            "compte_rendu": compte_rendu
+            "presence_score": presence,
+            "coherence_score": coherence,
+            "semantic_score": semantic,
+            "final_score": final_score,
         }
 
-    # -------------------------------------------------------------------------
-    # 05 — Boucle principale
-    # -------------------------------------------------------------------------
-
     def run(self):
-        logging.info("Démarrage du validator CATAR...")
+        logging.info("Démarrage du validator CATAR (réseau)...")
 
         try:
             while True:
-                result = self.forward()
-                logging.debug(result)
+                miner_output = self.query_miner("Test CATAR depuis le validator")
+
+                if not miner_output:
+                    logging.warning("Aucune réponse du miner.")
+                    time.sleep(2)
+                    continue
+
+                scores = self.compute_catar_score(miner_output)
+
+                logging.info(f"Score CATAR final = {scores['final_score']:.2f}")
+                logging.info(f"Détails du score : {scores}")
+                logging.debug(miner_output)
+
+                time.sleep(2)
+
         except KeyboardInterrupt:
             logging.info("Arrêt du validator CATAR.")
-
-
-# -----------------------------------------------------------------------------
-# 06 — Entrée principale
-# -----------------------------------------------------------------------------
+            print("Arrêt du validator CATAR.")
 
 def main():
     config = get_config()
     validator = ValidatorCATAR(config=config)
     validator.run()
 
-
 if __name__ == "__main__":
     main()
+
